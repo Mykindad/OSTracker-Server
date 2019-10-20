@@ -2,6 +2,7 @@ package me.mykindos.server.mysql;
 
 
 import me.mykindos.server.mysql.repositories.*;
+import me.mykindos.server.mysql.threads.QueryThread;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -10,22 +11,29 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class QueryFactory  {
 
-    private static ConcurrentLinkedQueue<Query> queries = new ConcurrentLinkedQueue<>();
+    public static ConcurrentLinkedQueue<Query> queries = new ConcurrentLinkedQueue<>();
     private static List<Repository> repositories = new ArrayList<>();
+    private static QueryFactory queryFactory;
+    private static Thread queryThread;
+
 
     /**
+     * We only want one instance of the query factory running
+     */
+    private QueryFactory() { }
+
+    /**
+     * Starts the query factory
      * Handles database, tables, and all created queries
      */
-    public QueryFactory() {
+    public static void initialise() throws Exception {
 
-        new Thread(() -> {
-            while(MySQLServer.getInstance().isConnected()){
-                Query q = queries.poll();
-                if (q != null) {
-                    q.execute(MySQLServer.getInstance().getConnection());
-                }
-            }
-        }).start();
+        if(repositories.size() > 0){
+            throw new Exception("Cannot have multiple instances of query factory");
+        }
+
+        queryThread = new QueryThread();
+        queryThread.start();
 
         repositories.add(new UserRepository());
         repositories.add(new ItemsRepository());
@@ -54,6 +62,14 @@ public class QueryFactory  {
     public static void createRepositories(String databaseName) {
         repositories.sort(Comparator.comparingInt(r2 -> r2.getLoadPriority().getPriority()));
         repositories.forEach(r -> r.initialize(databaseName));
+    }
+
+    public static QueryFactory getInstance(){
+        if(queryFactory == null){
+            queryFactory = new QueryFactory();
+        }
+
+        return queryFactory;
     }
 
 }

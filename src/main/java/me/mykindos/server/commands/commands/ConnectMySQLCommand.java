@@ -2,6 +2,7 @@ package me.mykindos.server.commands.commands;
 
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.MySQLServer;
+import me.mykindos.server.mysql.QueryFactory;
 
 public class ConnectMySQLCommand implements ICommand {
     @Override
@@ -11,7 +12,11 @@ public class ConnectMySQLCommand implements ICommand {
 
     @Override
     public void execute(String... args) {
-
-        MySQLServer.getInstance().establishConnection(args[0], args[1], args[2]);
+        try {
+            MySQLServer.getInstance().establishConnection(args[0], args[1], args[2]);
+            QueryFactory.getInstance().initialise();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
