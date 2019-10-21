@@ -26,9 +26,6 @@ public class QueryFactory {
      */
     private QueryFactory() {
         try {
-            if (repositories.size() > 0) {
-                throw new Exception("Cannot have multiple instances of query factory");
-            }
 
             queryThread = new QueryThread();
             queryThread.start();
@@ -48,8 +45,7 @@ public class QueryFactory {
     /**
      * @param query Runs a query statement
      */
-    public static void runQuery(String query) {
-        System.out.println(query);
+    public void runQuery(String query) {
         queries.add(new Query(query));
     }
 
@@ -58,7 +54,7 @@ public class QueryFactory {
      * Load order is LOWEST to HIGHEST
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public static void createRepositories(String databaseName) {
+    public void createRepositories(String databaseName) {
         repositories.sort(Comparator.comparingInt(r2 -> r2.getLoadPriority().getPriority()));
         repositories.forEach(r -> r.initialize(databaseName));
     }

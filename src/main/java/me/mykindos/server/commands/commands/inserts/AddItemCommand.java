@@ -17,6 +17,6 @@ public class AddItemCommand implements ICommand {
     @Override
     public void execute(String... args) {
         String query = "INSERT IGNORE INTO `osbot-"  + args[0] + ".items` (itemName) VALUES ('" + args[1] + "');";
-        QueryFactory.runQuery(query);
+        QueryFactory.getInstance().runQuery(query);
     }
 }

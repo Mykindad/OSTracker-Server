@@ -21,7 +21,7 @@ public class ItemsRepository implements Repository {
 
     @Override
     public void initialize(String database) {
-        QueryFactory.runQuery(getCreateTableQuery(database));
+        QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
     }
 
     @Override

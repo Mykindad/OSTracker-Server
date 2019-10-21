@@ -22,8 +22,8 @@ public class SkillsRepository implements Repository {
 
     @Override
     public void initialize(String database) {
-        QueryFactory.runQuery(getCreateTableQuery(database));
-        QueryFactory.runQuery("INSERT IGNORE INTO `" + getTableName(database) + "` (skillName) VALUES " +
+        QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
+        QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `" + getTableName(database) + "` (skillName) VALUES " +
                 "('ATTACK')," +
                 "('STRENGTH')," +
                 "('DEFENCE')," +

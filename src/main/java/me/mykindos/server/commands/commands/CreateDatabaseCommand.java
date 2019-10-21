@@ -12,7 +12,7 @@ public class CreateDatabaseCommand implements ICommand {
 
     @Override
     public void execute(String... args) {
-        QueryFactory.runQuery("CREATE DATABASE IF NOT EXISTS `" + args[0] + "`;");
-        QueryFactory.createRepositories(args[0]);
+        QueryFactory.getInstance().runQuery("CREATE DATABASE IF NOT EXISTS `" + args[0] + "`;");
+        QueryFactory.getInstance().createRepositories(args[0]);
     }
 }

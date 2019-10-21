@@ -24,10 +24,10 @@ public class ExperienceGainedRepository implements Repository {
 
     @Override
     public void initialize(String database) {
-        QueryFactory.runQuery(getCreateTableQuery(database));
-        QueryFactory.runQuery("ALTER TABLE `" + getTableName(database)
+        QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
+        QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
                 + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + ".users" + "` (`id`);");
-        QueryFactory.runQuery("ALTER TABLE `" + getTableName(database)
+        QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
                 + "` ADD FOREIGN KEY (`skill`) REFERENCES `" + database + ".skills" + "` (`id`);");
     }
 

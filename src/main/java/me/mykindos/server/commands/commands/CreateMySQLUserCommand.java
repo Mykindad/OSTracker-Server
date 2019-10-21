@@ -14,7 +14,7 @@ public class CreateMySQLUserCommand implements ICommand {
     public void execute(String... args) {
 
         // MySQL 8 requires mysql_native_password to login our way
-        QueryFactory.runQuery("CREATE USER IF NOT EXISTS `" + args[0]
+        QueryFactory.getInstance().runQuery("CREATE USER IF NOT EXISTS `" + args[0]
                 + "`@`localhost` IDENTIFIED WITH mysql_native_password BY '" + args[1] + "';");
     }
 }

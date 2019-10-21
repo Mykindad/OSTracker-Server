@@ -30,9 +30,9 @@ public class AddExperienceCommand implements ICommand {
             }
 
             query = query.substring(0, query.length() -1); // Remove the end comma
-            query+= ";"; // Complete the query
+            query += ";"; // Complete the query
 
-            QueryFactory.runQuery(query);
+            QueryFactory.getInstance().runQuery(query);
         }
     }
 }

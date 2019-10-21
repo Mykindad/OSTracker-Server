@@ -19,6 +19,6 @@ public class AddRunTimeCommand implements ICommand {
     public void execute(String... args) {
         String query = "INSERT INTO `osbot-"  + args[0] + ".runtime` (user, duration) VALUES ((SELECT id from `osbot-"
                 + args[0] + ".users` WHERE username = '" + args[1] + "'), '" + args[2] + "');";
-        QueryFactory.runQuery(query);
+        QueryFactory.getInstance().runQuery(query);
     }
 }

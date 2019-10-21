@@ -26,12 +26,12 @@ public class ScriptItemsRepository implements Repository {
 
     @Override
     public void initialize(String database) {
-        QueryFactory.runQuery(getCreateTableQuery(database));
-        QueryFactory.runQuery("ALTER TABLE `" + getTableName(database)
+        QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
+        QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
                 + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + ".users" + "` (`id`);");
-        QueryFactory.runQuery("ALTER TABLE `" + getTableName(database)
+        QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
                 + "` ADD FOREIGN KEY (`item`) REFERENCES `" + database + ".items" + "` (`id`);");
-        QueryFactory.runQuery("ALTER TABLE `" + getTableName(database)
+        QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
                 + "` ADD FOREIGN KEY (`itemStatus`) REFERENCES `" + database + ".itemstatus" + "` (`id`);");
     }
 

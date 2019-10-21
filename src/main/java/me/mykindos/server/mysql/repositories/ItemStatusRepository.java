@@ -21,8 +21,8 @@ public class ItemStatusRepository implements Repository {
 
     @Override
     public void initialize(String database) {
-        QueryFactory.runQuery(getCreateTableQuery(database));
-        QueryFactory.runQuery("INSERT INTO `" + getTableName(database) + "`(itemName) VALUES ('Received'), ('Lost');");
+        QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
+        QueryFactory.getInstance().runQuery("INSERT INTO `" + getTableName(database) + "`(itemName) VALUES ('Received'), ('Lost');");
     }
 
     @Override
