@@ -6,14 +6,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * A mysql query that is passed into the QueryFactory
+ */
 public class Query {
 
     private final String stmt;
 
+    /**
+     * @param stmt Query statement
+     */
     public Query(String stmt) {
         this.stmt = stmt;
     }
 
+    /**
+     * @return The query to be executed
+     */
     public String getStatement() {
         return stmt;
     }

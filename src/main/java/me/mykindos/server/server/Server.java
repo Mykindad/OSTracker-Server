@@ -5,6 +5,9 @@ import me.mykindos.server.server.threads.ServerThread;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+/**
+ * Creates a ServerSocket on the designated port
+ */
 public class Server {
 
     private final int serverPort;
@@ -25,7 +28,4 @@ public class Server {
         }
     }
 
-    private void initialise(){
-
-    }
 }

@@ -1,5 +1,8 @@
 package me.mykindos.server.commands;
 
+/**
+ * A command that we expect to receive from a client
+ */
 public interface ICommand {
 
     /**

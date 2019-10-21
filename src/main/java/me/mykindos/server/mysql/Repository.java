@@ -1,5 +1,9 @@
 package me.mykindos.server.mysql;
 
+/**
+ * Represents a Table at a code level
+ * Includes structure and default values
+ */
 public interface Repository {
 
     /**

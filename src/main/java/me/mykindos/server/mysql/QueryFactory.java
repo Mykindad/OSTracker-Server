@@ -9,7 +9,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class QueryFactory  {
+/**
+ * Handles queries all MySQL queries
+ */
+public class QueryFactory {
 
     public static ConcurrentLinkedQueue<Query> queries = new ConcurrentLinkedQueue<>();
     private static List<Repository> repositories = new ArrayList<>();
@@ -19,34 +22,30 @@ public class QueryFactory  {
 
     /**
      * We only want one instance of the query factory running
+     * Starts the query factory, which will process any new queries received from the client
      */
-    private QueryFactory() { }
+    private QueryFactory() {
+        try {
+            if (repositories.size() > 0) {
+                throw new Exception("Cannot have multiple instances of query factory");
+            }
 
-    /**
-     * Starts the query factory
-     * Handles database, tables, and all created queries
-     */
-    public static void initialise() throws Exception {
+            queryThread = new QueryThread();
+            queryThread.start();
 
-        if(repositories.size() > 0){
-            throw new Exception("Cannot have multiple instances of query factory");
+            repositories.add(new UserRepository());
+            repositories.add(new ItemsRepository());
+            repositories.add(new SkillsRepository());
+            repositories.add(new RunTimeRepository());
+            repositories.add(new ScriptItemsRepository());
+            repositories.add(new ItemStatusRepository());
+            repositories.add(new ExperienceGainedRepository());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        queryThread = new QueryThread();
-        queryThread.start();
-
-        repositories.add(new UserRepository());
-        repositories.add(new ItemsRepository());
-        repositories.add(new SkillsRepository());
-        repositories.add(new RunTimeRepository());
-        repositories.add(new ScriptItemsRepository());
-        repositories.add(new ItemStatusRepository());
-        repositories.add(new ExperienceGainedRepository());
-
     }
 
     /**
-     *
      * @param query Runs a query statement
      */
     public static void runQuery(String query) {
@@ -64,8 +63,13 @@ public class QueryFactory  {
         repositories.forEach(r -> r.initialize(databaseName));
     }
 
-    public static QueryFactory getInstance(){
-        if(queryFactory == null){
+    /**
+     * Instance of QueryFactory
+     *
+     * @return QueryFactory
+     */
+    public static QueryFactory getInstance() {
+        if (queryFactory == null) {
             queryFactory = new QueryFactory();
         }
 

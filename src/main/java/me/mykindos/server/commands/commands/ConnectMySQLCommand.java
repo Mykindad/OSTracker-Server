@@ -14,7 +14,6 @@ public class ConnectMySQLCommand implements ICommand {
     public void execute(String... args) {
         try {
             MySQLServer.getInstance().establishConnection(args[0], args[1], args[2]);
-            QueryFactory.getInstance().initialise();
         } catch (Exception e) {
             e.printStackTrace();
         }

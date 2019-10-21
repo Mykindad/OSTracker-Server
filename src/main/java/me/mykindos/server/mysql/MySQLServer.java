@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * The managing object for the MySQL Connection
+ */
 public class MySQLServer {
 
     private static MySQLServer mysqlServer;
@@ -44,10 +47,12 @@ public class MySQLServer {
             url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true";
 
             connection = DriverManager.getConnection(url, sqlUsername, sqlPassword);
+
+            QueryFactory.getInstance().initialise();
         } catch (SQLException ex) {
             ex.printStackTrace();
-
-            System.out.println(sqlUsername + ", " + sqlPassword);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -107,6 +112,10 @@ public class MySQLServer {
         }
     }
 
+    /**
+     * MySQLServer Instance
+     * @return MySQL Server
+     */
     public static MySQLServer getInstance() {
         if (mysqlServer == null) {
             mysqlServer = new MySQLServer();

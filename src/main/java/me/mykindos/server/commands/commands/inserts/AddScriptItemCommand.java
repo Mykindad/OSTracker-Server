@@ -3,6 +3,10 @@ package me.mykindos.server.commands.commands.inserts;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
+/**
+ * Processes the AddScriptItem command when received from a client.
+ * Inserts multiple sets per query to increase performance
+ */
 public class AddScriptItemCommand implements ICommand {
 
     @Override
@@ -13,7 +17,7 @@ public class AddScriptItemCommand implements ICommand {
     /**
      * [0] Script name
      * [1] OSBot Username
-     * [2] EXP Entry (Args: Item Name, Amount, Status)
+     * [2] Item Entry (Args: Item Name, Amount, Status)
      * @param args Command arguments
      */
     @Override
