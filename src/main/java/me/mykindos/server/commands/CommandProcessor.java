@@ -2,7 +2,7 @@ package me.mykindos.server.commands;
 
 import me.mykindos.server.commands.commands.ConnectMySQLCommand;
 import me.mykindos.server.commands.commands.CreateDatabaseCommand;
-import me.mykindos.server.commands.commands.CreateUserCommand;
+import me.mykindos.server.commands.commands.CreateMySQLUserCommand;
 import me.mykindos.server.commands.commands.GrantPrivilegesCommand;
 import me.mykindos.server.commands.exceptions.CommandNotFoundException;
 
@@ -19,7 +19,7 @@ public class CommandProcessor {
 
         commands.add(new CreateDatabaseCommand());
         commands.add(new ConnectMySQLCommand());
-        commands.add(new CreateUserCommand());
+        commands.add(new CreateMySQLUserCommand());
         commands.add(new GrantPrivilegesCommand());
     }
 

@@ -15,7 +15,7 @@ public class UserRepository implements Repository {
     public String getCreateTableQuery(String database) {
         return "CREATE TABLE IF NOT EXISTS `" + getTableName(database) + "` ("
                 + "`id` int PRIMARY KEY AUTO_INCREMENT,"
-                + "`username` varchar(255) NOT NULL"
+                + "`username` varchar(255) NOT NULL UNIQUE"
                 + ") ENGINE=InnoDB;";
     }
 

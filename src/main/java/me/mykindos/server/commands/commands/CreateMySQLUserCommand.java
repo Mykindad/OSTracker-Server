@@ -3,7 +3,7 @@ package me.mykindos.server.commands.commands;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
-public class CreateUserCommand implements ICommand {
+public class CreateMySQLUserCommand implements ICommand {
 
     @Override
     public boolean doesMatch(String command) {
@@ -15,6 +15,6 @@ public class CreateUserCommand implements ICommand {
 
         // MySQL 8 requires mysql_native_password to login our way
         QueryFactory.runQuery("CREATE USER IF NOT EXISTS `" + args[0]
-                + "`@`localhost` IDENTIFIED WITH mysql_native_password BY `" + args[1] + "`;");
+                + "`@`localhost` IDENTIFIED WITH mysql_native_password BY '" + args[1] + "';");
     }
 }

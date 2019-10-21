@@ -18,6 +18,7 @@ public class ScriptItemsRepository implements Repository {
                 + " `id` int PRIMARY KEY AUTO_INCREMENT,"
                 + " `user` int NOT NULL,"
                 + " `item` int NOT NULL,"
+                + " `amount' int NOT NULL,"
                 + " `itemStatus` int NOT NULL,"
                 + " `date` datetime NOT NULL DEFAULT (now()) "
                 + ") ENGINE=InnoDB;";

@@ -15,7 +15,7 @@ public class ItemsRepository implements Repository {
     public String getCreateTableQuery(String database) {
         return "CREATE TABLE IF NOT EXISTS `" + getTableName(database) + "` ("
                 + "`id` int PRIMARY KEY AUTO_INCREMENT,"
-                + "`itemName` varchar(255) NOT NULL"
+                + "`itemName` varchar(255) NOT NULL UNIQUE"
                 + ") ENGINE=InnoDB;";
     }
 
