@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e529d6eb-3918-46fb-a4d1-fe4f7561f88c" name="Default Changelist" comment="v1" />
+    <list default="true" id="e529d6eb-3918-46fb-a4d1-fe4f7561f88c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/CommandProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/CreateDatabaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/CreateDatabaseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/GrantPrivilegesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/GrantPrivilegesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/MySQLServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/MySQLServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/QueryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/QueryFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ExperienceGainedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ExperienceGainedRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ItemStatusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ItemStatusRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ScriptItemsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ScriptItemsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/SkillsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/SkillsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ClientThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ServerThread.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,20 +29,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="F:\OSBot\S3 Test - Backend\.idea" />
-      </set>
-    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -40,20 +46,23 @@
   <component name="ProjectId" id="1SRyHJCn4fW55KodBP70lDp1gBH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="me.mykindos.server" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.mykindos.server.commands.commands.inserts" />
       <recent name="server" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\OSBot\S3 Test - Backend\src\main\java\me\mykindos\server" />
       <recent name="F:\OSBot\S3 Test - Backend\src\me\mykindos\server\mysql" />
     </key>
   </component>
@@ -69,6 +78,26 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="me.mykindos.server.Main" />
+      <module name="S3 Test - Backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="me.mykindos.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -79,39 +108,54 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571498132260</updated>
-      <workItem from="1571540615330" duration="16023000" />
+      <workItem from="1571540615330" duration="2922000" />
+      <workItem from="1571645117006" duration="14408000" />
+      <workItem from="1571729641332" duration="13874000" />
     </task>
-    <task id="LOCAL-00001" summary="v1">
-      <created>1571571525544</created>
+    <task id="LOCAL-00001" summary="SQL Entry Commands">
+      <created>1571654486557</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1571571525544</updated>
+      <updated>1571654486557</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Error handling and documentation">
+      <created>1571658948566</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571658948566</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updates">
+      <created>1571668882650</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571668882650</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="SQL Entry Commands" />
+    <MESSAGE value="Error handling and documentation" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>

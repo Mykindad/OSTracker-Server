@@ -33,6 +33,6 @@ public class ExperienceGainedRepository implements Repository {
 
     @Override
     public LoadPriority getLoadPriority() {
-        return null;
+        return LoadPriority.HIGHEST;
     }
 }

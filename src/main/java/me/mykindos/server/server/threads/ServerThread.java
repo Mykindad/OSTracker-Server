@@ -32,19 +32,21 @@ public class ServerThread extends Thread {
 
                 try {
                     receiver = serverSocket.accept();
+                    receiver.setSoTimeout(5000);
+                    receiver.setKeepAlive(true);
                     if (receiver.isConnected()) {
                         new ClientThread(receiver).start();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                } finally {
-                    if (receiver != null) {
-                        receiver.close();
-                    }
                 }
-            } catch (IOException ex) {
-                ex.printStackTrace();
+
+
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
         }
     }
 }

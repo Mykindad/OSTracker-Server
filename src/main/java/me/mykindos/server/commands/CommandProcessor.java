@@ -38,10 +38,11 @@ public class CommandProcessor {
      * @throws CommandNotFoundException
      */
     public static void processCommand(String command) throws CommandNotFoundException {
+        System.out.println(command);
         Optional<ICommand> optional = commands.stream().filter(c -> c.doesMatch(command)).findFirst();
         if(optional.isPresent()){
             ICommand com = optional.get();
-            String[] args = command.substring(command.indexOf(";;")).split("--");
+            String[] args = command.substring(command.indexOf(";;") + 2).split("--");
             com.execute(args);
         }else{
             throw new CommandNotFoundException("Command not found for " + command);

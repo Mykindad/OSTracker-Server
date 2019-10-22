@@ -31,9 +31,13 @@ public class ClientThread extends Thread {
             BufferedReader reader = null;
             try {
                 reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                CommandProcessor.getInstance().processCommand(reader.readLine());
-                reader.close();
-                client.close();
+                String received;
+                while((received = reader.readLine()) != null){
+                    if(received.equals("END")) break;
+                    CommandProcessor.getInstance().processCommand(received);
+
+                }
+
             } catch (IOException | CommandNotFoundException e) {
                 e.printStackTrace();
             } finally {
@@ -41,7 +45,7 @@ public class ClientThread extends Thread {
                     reader.close();
                 }
 
-                if(client != null && client.isConnected()){
+                if(client != null){
                     client.close();
                 }
             }

@@ -12,7 +12,9 @@ public class CreateDatabaseCommand implements ICommand {
 
     @Override
     public void execute(String... args) {
-        QueryFactory.getInstance().runQuery("CREATE DATABASE IF NOT EXISTS `" + args[0] + "`;");
-        QueryFactory.getInstance().createRepositories(args[0]);
+
+        QueryFactory.getInstance().runQuery("CREATE DATABASE IF NOT EXISTS `" + args[0].toLowerCase() + "`;");
+        QueryFactory.getInstance().runQuery("USE `" + args[0].toLowerCase() + "`");  // Does not like the create table queries if no database is selected.
+        QueryFactory.getInstance().createRepositories(args[0].toLowerCase());
     }
 }

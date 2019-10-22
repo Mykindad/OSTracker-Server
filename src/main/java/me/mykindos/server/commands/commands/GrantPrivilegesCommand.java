@@ -14,6 +14,6 @@ public class GrantPrivilegesCommand implements ICommand {
     public void execute(String... args) {
 
         // Only grant privileges to Script related databases, anything else is not our business
-        QueryFactory.getInstance().runQuery("GRANT ALL PRIVILEGES ON `osbot-%`.* to `" + args[0] + "`@`localhost` WITH GRANT OPTION;");
+        QueryFactory.getInstance().runQuery("GRANT ALL PRIVILEGES ON `osbot-%`.* to `" + args[0] + "`@`localhost`;");
     }
 }

@@ -15,12 +15,12 @@ public class ScriptItemsRepository implements Repository {
     @Override
     public String getCreateTableQuery(String database) {
         return "CREATE TABLE IF NOT EXISTS `" + getTableName(database) + "` ("
-                + " `id` int PRIMARY KEY AUTO_INCREMENT,"
-                + " `user` int NOT NULL,"
-                + " `item` int NOT NULL,"
-                + " `amount' int NOT NULL,"
-                + " `itemStatus` int NOT NULL,"
-                + " `date` datetime NOT NULL DEFAULT (now()) "
+                + "`id` int PRIMARY KEY AUTO_INCREMENT,"
+                + "`user` int NOT NULL,"
+                + "`item` int NOT NULL,"
+                + "`amount` int NOT NULL,"
+                + "`itemStatus` int NOT NULL,"
+                + "`date` datetime NOT NULL DEFAULT (now()) "
                 + ") ENGINE=InnoDB;";
     }
 

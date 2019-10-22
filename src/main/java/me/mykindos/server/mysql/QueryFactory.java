@@ -30,13 +30,7 @@ public class QueryFactory {
             queryThread = new QueryThread();
             queryThread.start();
 
-            repositories.add(new UserRepository());
-            repositories.add(new ItemsRepository());
-            repositories.add(new SkillsRepository());
-            repositories.add(new RunTimeRepository());
-            repositories.add(new ScriptItemsRepository());
-            repositories.add(new ItemStatusRepository());
-            repositories.add(new ExperienceGainedRepository());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,6 +40,7 @@ public class QueryFactory {
      * @param query Runs a query statement
      */
     public void runQuery(String query) {
+        System.out.println(query);
         queries.add(new Query(query));
     }
 
@@ -55,6 +50,15 @@ public class QueryFactory {
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
     public void createRepositories(String databaseName) {
+        if(repositories.isEmpty()){
+            repositories.add(new UserRepository());
+            repositories.add(new ItemsRepository());
+            repositories.add(new SkillsRepository());
+            repositories.add(new RunTimeRepository());
+            repositories.add(new ScriptItemsRepository());
+            repositories.add(new ItemStatusRepository());
+            repositories.add(new ExperienceGainedRepository());
+        }
         repositories.sort(Comparator.comparingInt(r2 -> r2.getLoadPriority().getPriority()));
         repositories.forEach(r -> r.initialize(databaseName));
     }

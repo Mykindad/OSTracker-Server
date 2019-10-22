@@ -14,15 +14,15 @@ public class ItemStatusRepository implements Repository {
     @Override
     public String getCreateTableQuery(String database) {
         return "CREATE TABLE IF NOT EXISTS `" + getTableName(database) + "` ("
-                + "`id` int PRIMARY KEY,"
-                + "`status` varchar(255) NOT NULL"
+                + "`id` int PRIMARY KEY AUTO_INCREMENT,"
+                + "`status` varchar(255) NOT NULL UNIQUE"
                 + ") Engine=InnoDB;";
     }
 
     @Override
     public void initialize(String database) {
         QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
-        QueryFactory.getInstance().runQuery("INSERT INTO `" + getTableName(database) + "`(itemName) VALUES ('Received'), ('Lost');");
+        QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `" + getTableName(database) + "`(status) VALUES ('Received'), ('Lost');");
     }
 
     @Override

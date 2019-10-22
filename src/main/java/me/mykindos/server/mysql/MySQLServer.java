@@ -43,12 +43,12 @@ public class MySQLServer {
             sqlUsername = username;
             sqlPassword = password;
 
-
-            url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true";
+            System.out.println(sqlServer + "," + sqlUsername + "," + sqlPassword);
+            url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT";
 
             connection = DriverManager.getConnection(url, sqlUsername, sqlPassword);
 
-            QueryFactory.getInstance().initialise();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (Exception e) {

@@ -1,6 +1,5 @@
 package me.mykindos.server;
 
-import me.mykindos.server.commands.CommandProcessor;
 import me.mykindos.server.server.Server;
 
 public class Main {

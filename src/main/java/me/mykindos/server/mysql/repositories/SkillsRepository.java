@@ -15,8 +15,8 @@ public class SkillsRepository implements Repository {
     @Override
     public String getCreateTableQuery(String database) {
         return "CREATE TABLE IF NOT EXISTS `" + getTableName(database) + "` ("
-                + "`id` int PRIMARY KEY,"
-                + "`skillName` varchar(255) NOT NULL"
+                + "`id` int PRIMARY KEY AUTO_INCREMENT,"
+                + "`skillName` varchar(255) NOT NULL UNIQUE"
                 + ") ENGINE=InnoDB;";
     }
 
