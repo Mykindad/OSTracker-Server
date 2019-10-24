@@ -3,18 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e529d6eb-3918-46fb-a4d1-fe4f7561f88c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/CommandProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/CreateDatabaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/CreateDatabaseCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/GrantPrivilegesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/GrantPrivilegesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddExperienceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddExperienceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddItemCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddItemCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddRunTimeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddRunTimeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddScriptItemCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddScriptItemCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/commands/commands/inserts/AddUserCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/MySQLServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/MySQLServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/Query.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/QueryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/QueryFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ExperienceGainedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ExperienceGainedRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ItemStatusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ItemStatusRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ScriptItemsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/ScriptItemsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/SkillsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/mysql/repositories/SkillsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ClientThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mykindos/server/server/threads/ServerThread.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +108,9 @@
       <workItem from="1571540615330" duration="2922000" />
       <workItem from="1571645117006" duration="14408000" />
       <workItem from="1571729641332" duration="13874000" />
+      <workItem from="1571834908319" duration="1418000" />
+      <workItem from="1571903367014" duration="109000" />
+      <workItem from="1571916658775" duration="10056000" />
     </task>
     <task id="LOCAL-00001" summary="SQL Entry Commands">
       <created>1571654486557</created>

@@ -22,7 +22,7 @@ public class ItemStatusRepository implements Repository {
     @Override
     public void initialize(String database) {
         QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
-        QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `" + getTableName(database) + "`(status) VALUES ('Received'), ('Lost');");
+        QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `" + getTableName(database) + "`(status) VALUES ('Received'), ('Lost'), ('Spent');");
     }
 
     @Override

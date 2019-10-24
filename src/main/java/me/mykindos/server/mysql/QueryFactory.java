@@ -40,7 +40,7 @@ public class QueryFactory {
      * @param query Runs a query statement
      */
     public void runQuery(String query) {
-        System.out.println(query);
+      //  System.out.println(query);
         queries.add(new Query(query));
     }
 

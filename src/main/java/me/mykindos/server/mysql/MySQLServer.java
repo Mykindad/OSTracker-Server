@@ -43,17 +43,31 @@ public class MySQLServer {
             sqlUsername = username;
             sqlPassword = password;
 
-            System.out.println(sqlServer + "," + sqlUsername + "," + sqlPassword);
             url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT";
 
             connection = DriverManager.getConnection(url, sqlUsername, sqlPassword);
 
+            QueryFactory.getInstance().runQuery("INSERT INTO `osbot-client.runtimes` (user, `duration`) VALUES ((SELECT id from `osbot-client.users` WHERE username = 'Tom'), '18031');");
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Set MySQL Settings without opening a connection
+     * @param host Host IP
+     * @param username MySQL username
+     * @param password MySQL Password
+     */
+    public void setMySQLCredentials(String host, String username, String password){
+        sqlServer = host;
+        sqlUsername = username;
+        sqlPassword = password;
+        url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT";
+
     }
 
     /**
@@ -74,6 +88,9 @@ public class MySQLServer {
      */
     public boolean isConnected() {
         try {
+            if(connection == null){
+                return false;
+            }
             if (!connection.isClosed()) {
                 return true;
             }
