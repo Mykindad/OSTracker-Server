@@ -3,6 +3,9 @@ package me.mykindos.server.commands.commands.inserts;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
+/**
+ * Command that adds an OSBot user to the users table
+ */
 public class AddUserCommand implements ICommand {
     @Override
     public boolean doesMatch(String command) {

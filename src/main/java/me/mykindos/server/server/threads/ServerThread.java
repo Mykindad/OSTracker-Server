@@ -13,6 +13,10 @@ public class ServerThread extends Thread {
 
     private final ServerSocket serverSocket;
 
+    /**
+     * Create Thread for Server Listener
+     * @param serverSocket
+     */
     public ServerThread(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }

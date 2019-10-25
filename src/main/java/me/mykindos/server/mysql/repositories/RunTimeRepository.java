@@ -4,6 +4,10 @@ import me.mykindos.server.mysql.LoadPriority;
 import me.mykindos.server.mysql.QueryFactory;
 import me.mykindos.server.mysql.Repository;
 
+/**
+ * Repository for tracking each users runtime data.
+ * Stores time ran in milliseconds
+ */
 public class RunTimeRepository implements Repository {
 
     @Override

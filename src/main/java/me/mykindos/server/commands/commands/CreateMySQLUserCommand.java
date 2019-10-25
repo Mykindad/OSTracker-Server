@@ -3,6 +3,9 @@ package me.mykindos.server.commands.commands;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
+/**
+ * Command that creates a MySQL user
+ */
 public class CreateMySQLUserCommand implements ICommand {
 
     @Override

@@ -3,8 +3,10 @@ package me.mykindos.server.commands.commands.inserts;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
-import java.util.Arrays;
 
+/**
+ * Command that adds experience data for a user to the experiencegained table
+ */
 public class AddExperienceCommand implements ICommand {
 
     @Override

@@ -4,6 +4,9 @@ import me.mykindos.server.mysql.LoadPriority;
 import me.mykindos.server.mysql.QueryFactory;
 import me.mykindos.server.mysql.Repository;
 
+/**
+ * Repository for recording all unique item names against an ID
+ */
 public class ItemsRepository implements Repository {
 
     @Override

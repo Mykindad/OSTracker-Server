@@ -22,11 +22,14 @@ public class QueryThread extends Thread {
      */
     @Override
     public void run(){
-        while(MySQLServer.getInstance().isConnected() && !interrupted()){
+        while(!interrupted()){
+
             Query q = QueryFactory.getInstance().queries.poll();
             if (q != null) {
                 q.execute(MySQLServer.getInstance().getConnection());
             }
+
         }
+        System.out.println("Interrupted MySQL Loop");
     }
 }

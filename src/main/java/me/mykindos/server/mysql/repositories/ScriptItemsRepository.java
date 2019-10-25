@@ -4,6 +4,9 @@ import me.mykindos.server.mysql.LoadPriority;
 import me.mykindos.server.mysql.QueryFactory;
 import me.mykindos.server.mysql.Repository;
 
+/**
+ * Repository for storing items gained / lost / spent for a user
+ */
 public class ScriptItemsRepository implements Repository {
 
 

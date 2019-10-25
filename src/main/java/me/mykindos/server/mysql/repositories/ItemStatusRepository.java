@@ -4,6 +4,10 @@ import me.mykindos.server.mysql.LoadPriority;
 import me.mykindos.server.mysql.QueryFactory;
 import me.mykindos.server.mysql.Repository;
 
+/**
+ * Repository for mapping each ItemStatus to an ID.
+ * Item Statuses include Received, Lost, and Spent
+ */
 public class ItemStatusRepository implements Repository {
 
     @Override

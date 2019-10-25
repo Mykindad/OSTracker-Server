@@ -3,6 +3,9 @@ package me.mykindos.server.commands.commands.inserts;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
+/**
+ * Command that adds each users run time for the current session to the runtimes table
+ */
 public class AddRunTimeCommand implements ICommand {
     @Override
     public boolean doesMatch(String command) {

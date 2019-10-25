@@ -3,6 +3,9 @@ package me.mykindos.server.commands.commands;
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.QueryFactory;
 
+/**
+ * Command that gives a user full access to osbot related tables
+ */
 public class GrantPrivilegesCommand implements ICommand {
 
     @Override

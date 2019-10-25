@@ -4,6 +4,9 @@ import me.mykindos.server.mysql.LoadPriority;
 import me.mykindos.server.mysql.QueryFactory;
 import me.mykindos.server.mysql.Repository;
 
+/**
+ * Repository that maps each OSBot user to an ID
+ */
 public class UserRepository implements Repository {
 
     @Override

@@ -19,7 +19,6 @@ public class QueryFactory {
     private static QueryFactory queryFactory;
     private static Thread queryThread;
 
-
     /**
      * We only want one instance of the query factory running
      * Starts the query factory, which will process any new queries received from the client
@@ -40,7 +39,7 @@ public class QueryFactory {
      * @param query Runs a query statement
      */
     public void runQuery(String query) {
-      //  System.out.println(query);
+        System.out.println("Query: " + query);
         queries.add(new Query(query));
     }
 

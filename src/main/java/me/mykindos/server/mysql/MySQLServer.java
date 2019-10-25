@@ -2,6 +2,7 @@ package me.mykindos.server.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -10,14 +11,14 @@ import java.sql.SQLException;
 public class MySQLServer {
 
     private static MySQLServer mysqlServer;
-    private Connection connection;
     private static int sqlPort = 3306;
+    private Connection connection;
     private String sqlServer;
     private String sqlUsername;
     private String sqlPassword;
     private String sqlDataBaseName;
     private String url;
-
+    private Thread connectionChecker;
 
     /**
      * Ensure only one instance can be created
@@ -26,7 +27,21 @@ public class MySQLServer {
     }
 
     /**
+     * MySQLServer Instance
+     *
+     * @return MySQL Server
+     */
+    public static MySQLServer getInstance() {
+        if (mysqlServer == null) {
+            mysqlServer = new MySQLServer();
+        }
+
+        return mysqlServer;
+    }
+
+    /**
      * Create a connection with a specific database
+     *
      * @param host     IP of server MySQL is running on
      * @param username MySQL Username
      * @param password MySQL Password
@@ -47,7 +62,30 @@ public class MySQLServer {
 
             connection = DriverManager.getConnection(url, sqlUsername, sqlPassword);
 
-            QueryFactory.getInstance().runQuery("INSERT INTO `osbot-client.runtimes` (user, `duration`) VALUES ((SELECT id from `osbot-client.users` WHERE username = 'Tom'), '18031');");
+            // Monitors the MySQL connection in case it drops
+            if(connectionChecker != null){
+                connectionChecker.interrupt();
+            }
+            connectionChecker = new Thread(() -> {
+                while (!Thread.interrupted()) {
+                    try {
+
+                        if (!isTrulyConnected()) {
+                            System.out.println("Attempting to reestablish connection with MySQL");
+                            connection = DriverManager.getConnection(url, sqlUsername, sqlPassword);
+                        }
+
+                        Thread.sleep(5000);
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            connectionChecker.start();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -58,11 +96,12 @@ public class MySQLServer {
 
     /**
      * Set MySQL Settings without opening a connection
-     * @param host Host IP
+     *
+     * @param host     Host IP
      * @param username MySQL username
      * @param password MySQL Password
      */
-    public void setMySQLCredentials(String host, String username, String password){
+    public void setMySQLCredentials(String host, String username, String password) {
         sqlServer = host;
         sqlUsername = username;
         sqlPassword = password;
@@ -82,13 +121,27 @@ public class MySQLServer {
     }
 
     /**
+     * Check if the MySQL connection is still active
+     * @return True if still connected to MySQL
+     */
+    public boolean isTrulyConnected() {
+        try {
+            return connection.isValid(500);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
      * Checks if a database connection is open
      *
      * @return True if a connection is currently established
      */
     public boolean isConnected() {
         try {
-            if(connection == null){
+            if (connection == null) {
                 return false;
             }
             if (!connection.isClosed()) {
@@ -108,6 +161,7 @@ public class MySQLServer {
     public Connection getConnection() {
         if (connection == null) {
             try {
+
                 connection = DriverManager.getConnection(url, sqlUsername, sqlPassword);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -121,23 +175,12 @@ public class MySQLServer {
      */
     public void disableSQL() {
         try {
+            connectionChecker.interrupt();
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
-
-    /**
-     * MySQLServer Instance
-     * @return MySQL Server
-     */
-    public static MySQLServer getInstance() {
-        if (mysqlServer == null) {
-            mysqlServer = new MySQLServer();
-        }
-
-        return mysqlServer;
     }
 }

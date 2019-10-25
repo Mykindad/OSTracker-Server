@@ -2,8 +2,10 @@ package me.mykindos.server.commands.commands;
 
 import me.mykindos.server.commands.ICommand;
 import me.mykindos.server.mysql.MySQLServer;
-import me.mykindos.server.mysql.QueryFactory;
 
+/**
+ * Command that establishes the connection to the MySQL Server
+ */
 public class ConnectMySQLCommand implements ICommand {
     @Override
     public boolean doesMatch(String command) {

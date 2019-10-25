@@ -22,23 +22,25 @@ public class AddScriptItemCommand implements ICommand {
      */
     @Override
     public void execute(String... args) {
-        String scriptName = args[0].toLowerCase();
-        String[] itemEntries = args[2].split("!-!");
-        if(itemEntries.length > 0) {
-            String query = "INSERT INTO `osbot-" + scriptName + ".scriptitems` (user, item, amount, itemStatus) VALUES ";
-            for(String s : itemEntries){
-                String[] entryArgs = s.split(",");
-                query += "((SELECT id from `osbot-" + scriptName + ".users` WHERE username = '" + args[1] + "'), " +
-                        "(SELECT id from `osbot-" + scriptName + ".items` WHERE itemName = '" + entryArgs[0] + "'), " +
-                        "" + entryArgs[1] + "," +
-                        "(SELECT id from `osbot-" + scriptName + ".itemstatus` WHERE status = '" + entryArgs[2] + "')),";
+        if(args.length > 1) {
+            String scriptName = args[0].toLowerCase();
+            String[] itemEntries = args[2].split("!-!");
+            if (itemEntries.length > 0) {
+                String query = "INSERT INTO `osbot-" + scriptName + ".scriptitems` (user, item, amount, itemStatus) VALUES ";
+                for (String s : itemEntries) {
+                    String[] entryArgs = s.split(",");
+                    query += "((SELECT id from `osbot-" + scriptName + ".users` WHERE username = '" + args[1] + "'), " +
+                            "(SELECT id from `osbot-" + scriptName + ".items` WHERE itemName = '" + entryArgs[0] + "'), " +
+                            "" + entryArgs[1] + "," +
+                            "(SELECT id from `osbot-" + scriptName + ".itemstatus` WHERE status = '" + entryArgs[2] + "')),";
 
+                }
+
+                query = query.substring(0, query.length() - 1); // Remove the end comma
+                query += ";"; // Complete the query
+
+                QueryFactory.getInstance().runQuery(query);
             }
-
-            query = query.substring(0, query.length() -1); // Remove the end comma
-            query+= ";"; // Complete the query
-
-            QueryFactory.getInstance().runQuery(query);
         }
     }
 }

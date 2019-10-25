@@ -4,6 +4,9 @@ import me.mykindos.server.mysql.LoadPriority;
 import me.mykindos.server.mysql.QueryFactory;
 import me.mykindos.server.mysql.Repository;
 
+/**
+ * Repository for tracking all experience gains for the user
+ */
 public class ExperienceGainedRepository implements Repository {
 
     @Override

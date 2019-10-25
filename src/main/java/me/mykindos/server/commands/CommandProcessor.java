@@ -20,6 +20,9 @@ public class CommandProcessor {
     private static List<ICommand> commands = new ArrayList<>();;
     private static CommandProcessor commandProcessor;
 
+    /**
+     * Instantiate commands
+     */
     private CommandProcessor() {
         commands.add(new CreateDatabaseCommand());
         commands.add(new ConnectMySQLCommand());

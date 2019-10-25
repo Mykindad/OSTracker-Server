@@ -34,7 +34,7 @@ public class Query {
     public void execute(Connection connection) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(getStatement());
-            System.out.println("QUERY " + preparedStatement);
+            System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (CommunicationsException ce) {
@@ -42,8 +42,6 @@ public class Query {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-        System.out.println("MEME2");
 
     }
 
