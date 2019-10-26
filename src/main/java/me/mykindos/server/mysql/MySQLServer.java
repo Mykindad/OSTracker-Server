@@ -160,6 +160,7 @@ public class MySQLServer {
      * @return Connection object
      */
     public Connection getConnection() {
+        if(url == null) return null;
         if (connection == null) {
             try {
 

@@ -23,7 +23,7 @@ public class QueryThread extends Thread {
     @Override
     public void run(){
         while(!interrupted()){
-
+            if(MySQLServer.getInstance().getConnection() == null) continue;
             Query q = QueryFactory.getInstance().queries.poll();
             if (q != null) {
                 q.execute(MySQLServer.getInstance().getConnection());
