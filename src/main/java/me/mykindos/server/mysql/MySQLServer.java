@@ -105,6 +105,11 @@ public class MySQLServer {
 
     }
 
+    /**
+     * Set Credentials for MySQL user
+     * @param username Username
+     * @param password Password
+     */
     public void setMySQLUserCredentials(String username, String password){
         this.mysqlCreateUsername = username;
         this.mysqlCreatePasssword = password;
