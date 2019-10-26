@@ -1,6 +1,7 @@
 package me.mykindos.server.commands.commands;
 
 import me.mykindos.server.commands.ICommand;
+import me.mykindos.server.mysql.MySQLServer;
 import me.mykindos.server.mysql.QueryFactory;
 
 /**
@@ -13,10 +14,14 @@ public class GrantPrivilegesCommand implements ICommand {
         return command.startsWith("GrantPrivileges");
     }
 
+    /**
+     * Grant Privileges to the specified MySQL User
+     * @param args Command arguments
+     */
     @Override
     public void execute(String... args) {
 
         // Only grant privileges to Script related databases, anything else is not our business
-        QueryFactory.getInstance().runQuery("GRANT ALL PRIVILEGES ON `osbot-%`.* to `" + args[0] + "`@`localhost`;");
+        QueryFactory.getInstance().runQuery("GRANT ALL PRIVILEGES ON `osbot-%`.* to `" + MySQLServer.getInstance().getMysqlCreateUserUsername() + "`@`localhost`;");
     }
 }

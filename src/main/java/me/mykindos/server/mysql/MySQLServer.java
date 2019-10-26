@@ -20,6 +20,9 @@ public class MySQLServer {
     private String url;
     private Thread connectionChecker;
 
+    private String mysqlCreateUsername;
+    private String mysqlCreatePasssword;
+
     /**
      * Ensure only one instance can be created
      */
@@ -41,12 +44,8 @@ public class MySQLServer {
 
     /**
      * Create a connection with a specific database
-     *
-     * @param host     IP of server MySQL is running on
-     * @param username MySQL Username
-     * @param password MySQL Password
      */
-    public void establishConnection(String host, String username, String password) {
+    public void establishConnection() {
         try {
 
             // If a connection already exists, do not create a new one
@@ -54,9 +53,6 @@ public class MySQLServer {
                 return;
             }
 
-            sqlServer = host;
-            sqlUsername = username;
-            sqlPassword = password;
 
             url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT";
 
@@ -107,6 +103,11 @@ public class MySQLServer {
         sqlPassword = password;
         url = "jdbc:mysql://" + sqlServer + "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT";
 
+    }
+
+    public void setMySQLUserCredentials(String username, String password){
+        this.mysqlCreateUsername = username;
+        this.mysqlCreatePasssword = password;
     }
 
     /**
@@ -182,5 +183,13 @@ public class MySQLServer {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public String getMysqlCreateUserUsername() {
+        return mysqlCreateUsername;
+    }
+
+    public String getMysqlCreateUserPasssword() {
+        return mysqlCreatePasssword;
     }
 }
