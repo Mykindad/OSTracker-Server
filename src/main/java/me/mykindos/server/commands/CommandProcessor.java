@@ -52,6 +52,9 @@ public class CommandProcessor {
         }
     }
 
+    /**
+     * @return CommandProcessor
+     */
     public static CommandProcessor getInstance(){
         if(commandProcessor == null){
             commandProcessor = new CommandProcessor();

@@ -12,6 +12,11 @@ public class AddUserCommand implements ICommand {
         return command.startsWith("AddUser");
     }
 
+    /**
+     * [0] Script Name
+     * [1] OSBot Username
+     * @param args Command arguments
+     */
     @Override
     public void execute(String... args) {
         QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `osbot-"  + args[0].toLowerCase() + ".users` (username) VALUES ('" + args[1] + "');");
