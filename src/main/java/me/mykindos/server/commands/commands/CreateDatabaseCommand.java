@@ -18,6 +18,7 @@ public class CreateDatabaseCommand implements ICommand {
 
         QueryFactory.getInstance().runQuery("CREATE DATABASE IF NOT EXISTS `" + args[0].toLowerCase() + "`;");
         QueryFactory.getInstance().runQuery("USE `" + args[0].toLowerCase() + "`");  // Does not like the create table queries if no database is selected.
+        QueryFactory.getInstance().runQuery("SET sql_mode = ''");
         QueryFactory.getInstance().createRepositories(args[0].toLowerCase());
     }
 }
