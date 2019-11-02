@@ -25,7 +25,7 @@ public class AddItemCommand implements ICommand {
             if (itemEntries.length > 0) {
                 String query = "INSERT IGNORE INTO `osbot-" + scriptName + ".items` (itemName) VALUES ";
                 for (String s : itemEntries) {
-                    query += "('" + s + "'),";
+                    query += "('" + s.replaceAll("'", "") + "'),";
 
                 }
 
