@@ -13,7 +13,7 @@ public class Main {
      * @param args arguments
      */
     public static void main(String[] args){
-
+        System.out.println("Server started...");
         MySQLServer.getInstance().setMySQLCredentials("127.0.0.1:3306", "root", "123");
         //MySQLServer.getInstance().setMySQLUserCredentials("test", "123");
         server = new Server(PORT);
