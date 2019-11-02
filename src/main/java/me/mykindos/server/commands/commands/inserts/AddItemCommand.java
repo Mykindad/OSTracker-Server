@@ -23,7 +23,7 @@ public class AddItemCommand implements ICommand {
             String scriptName = args[0].toLowerCase();
             String[] itemEntries = args[1].split("!-!");
             if (itemEntries.length > 0) {
-                String query = "INSERT IGNORE INTO `osbot-" + scriptName + ".items` (itemName) VALUES ";
+                String query = "INSERT IGNORE INTO `osbot-" + scriptName + "`.`items` (itemName) VALUES ";
                 for (String s : itemEntries) {
                     query += "('" + s.replaceAll("'", "") + "'),";
 

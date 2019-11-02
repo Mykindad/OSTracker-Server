@@ -12,7 +12,7 @@ public class SkillsRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".skills";
+        return database + "`.`skills";
     }
 
     @Override

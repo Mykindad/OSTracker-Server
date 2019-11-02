@@ -12,7 +12,7 @@ public class ScriptItemsRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".scriptitems";
+        return database + "`.`scriptitems";
     }
 
     @Override
@@ -31,11 +31,11 @@ public class ScriptItemsRepository implements Repository {
     public void initialize(String database) {
         QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
         QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
-                + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + ".users" + "` (`id`);");
+                + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + "`.`users" + "` (`id`);");
         QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
-                + "` ADD FOREIGN KEY (`item`) REFERENCES `" + database + ".items" + "` (`id`);");
+                + "` ADD FOREIGN KEY (`item`) REFERENCES `" + database + "`.`items" + "` (`id`);");
         QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
-                + "` ADD FOREIGN KEY (`itemStatus`) REFERENCES `" + database + ".itemstatus" + "` (`id`);");
+                + "` ADD FOREIGN KEY (`itemStatus`) REFERENCES `" + database + "`.`itemstatus" + "` (`id`);");
     }
 
     @Override

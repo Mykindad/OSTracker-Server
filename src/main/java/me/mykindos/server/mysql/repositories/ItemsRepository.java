@@ -11,7 +11,7 @@ public class ItemsRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".items";
+        return database + "`.`items";
     }
 
     @Override

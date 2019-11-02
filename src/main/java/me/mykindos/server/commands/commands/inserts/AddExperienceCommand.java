@@ -26,11 +26,11 @@ public class AddExperienceCommand implements ICommand {
             String scriptName = args[0].toLowerCase();
             String[] expEntries = args[2].split("!-!");
             if (expEntries.length > 0) {
-                String query = "INSERT INTO `osbot-" + scriptName + ".experiencegained` (user, skill, exp) VALUES ";
+                String query = "INSERT INTO `osbot-" + scriptName + "`.`experiencegained` (user, skill, exp) VALUES ";
                 for (String s : expEntries) {
                     String[] entryArgs = s.split(",");
-                    query += "((SELECT id from `osbot-" + scriptName + ".users` WHERE username = '" + args[1] + "'), " +
-                            "(SELECT id from `osbot-" + scriptName + ".skills` WHERE skillName = '" + entryArgs[0] + "'), '" + entryArgs[1] + "'),";
+                    query += "((SELECT id from `osbot-" + scriptName + "`.`users` WHERE username = '" + args[1] + "'), " +
+                            "(SELECT id from `osbot-" + scriptName + "`.`skills` WHERE skillName = '" + entryArgs[0] + "'), '" + entryArgs[1] + "'),";
                 }
 
                 query = query.substring(0, query.length() - 1); // Remove the end comma

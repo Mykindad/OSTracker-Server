@@ -11,7 +11,7 @@ public class ExperienceGainedRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".experiencegained";
+        return database + "`.`experiencegained";
     }
 
     @Override
@@ -29,9 +29,9 @@ public class ExperienceGainedRepository implements Repository {
     public void initialize(String database) {
         QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
         QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
-                + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + ".users" + "` (`id`);");
+                + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + "`.`users" + "` (`id`);");
         QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
-                + "` ADD FOREIGN KEY (`skill`) REFERENCES `" + database + ".skills" + "` (`id`);");
+                + "` ADD FOREIGN KEY (`skill`) REFERENCES `" + database + "`.`skills" + "` (`id`);");
     }
 
     @Override

@@ -12,7 +12,7 @@ public class ItemStatusRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".itemstatus";
+        return database + "`.`itemstatus";
     }
 
     @Override
@@ -26,7 +26,7 @@ public class ItemStatusRepository implements Repository {
     @Override
     public void initialize(String database) {
         QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
-        QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `" + getTableName(database) + "`(status) VALUES ('Received'), ('Lost'), ('Spent');");
+        QueryFactory.getInstance().runQuery("INSERT IGNORE INTO `" + getTableName(database) + "` (status) VALUES ('Received'), ('Lost'), ('Spent');");
     }
 
     @Override

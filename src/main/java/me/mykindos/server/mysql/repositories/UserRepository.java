@@ -11,7 +11,7 @@ public class UserRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".users";
+        return database + "`.`users";
     }
 
     @Override

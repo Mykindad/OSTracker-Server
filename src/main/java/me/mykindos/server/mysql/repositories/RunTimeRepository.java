@@ -12,7 +12,7 @@ public class RunTimeRepository implements Repository {
 
     @Override
     public String getTableName(String database) {
-        return database + ".runtimes";
+        return database + "`.`runtimes";
     }
 
     @Override
@@ -30,7 +30,7 @@ public class RunTimeRepository implements Repository {
 
         QueryFactory.getInstance().runQuery(getCreateTableQuery(database));
         QueryFactory.getInstance().runQuery("ALTER TABLE `" + getTableName(database)
-                + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + ".users" + "` (`id`);");
+                + "` ADD FOREIGN KEY (`user`) REFERENCES `" + database + "`.`users" + "` (`id`);");
     }
 
     @Override
