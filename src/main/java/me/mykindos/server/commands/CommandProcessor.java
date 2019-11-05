@@ -29,6 +29,7 @@ public class CommandProcessor {
         commands.add(new AddRunTimeCommand());
         commands.add(new AddScriptItemCommand());
         commands.add(new AddUserCommand());
+        commands.add(new AddLogCommand());
     }
 
     /**

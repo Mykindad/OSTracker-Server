@@ -14,8 +14,8 @@ public class Main {
      */
     public static void main(String[] args){
         System.out.println("Server started...");
-        MySQLServer.getInstance().setMySQLCredentials("127.0.0.1:3306", "root", "123");
-        MySQLServer.getInstance().setMySQLUserCredentials("myusername", "mypassword");
+        MySQLServer.getInstance().setMySQLCredentials("127.0.0.1:3306", "tom", "!A9516254");
+        //MySQLServer.getInstance().setMySQLUserCredentials("myusername", "mypassword");
         server = new Server(PORT);
 
     }

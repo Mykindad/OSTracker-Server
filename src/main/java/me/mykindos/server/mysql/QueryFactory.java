@@ -57,6 +57,7 @@ public class QueryFactory {
             repositories.add(new ScriptItemsRepository());
             repositories.add(new ItemStatusRepository());
             repositories.add(new ExperienceGainedRepository());
+            repositories.add(new LogRepository());
         }
         repositories.sort(Comparator.comparingInt(r2 -> r2.getLoadPriority().getPriority()));
         repositories.forEach(r -> r.initialize(databaseName));
