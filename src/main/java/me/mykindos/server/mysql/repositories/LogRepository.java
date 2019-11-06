@@ -21,6 +21,7 @@ public class LogRepository implements Repository {
                 + "`id` int PRIMARY KEY AUTO_INCREMENT,"
                 + "`user` int NOT NULL,"
                 + "`version` VARCHAR(10) NOT NULL,"
+                + "`mirror` tinyint NOT NULL,"
                 + "`log` LONGTEXT NOT NULL,"
                 + "`date` datetime NOT NULL DEFAULT (now())"
                 + ") ENGINE=InnoDB;";

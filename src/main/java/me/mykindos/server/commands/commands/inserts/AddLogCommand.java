@@ -23,13 +23,14 @@ public class AddLogCommand implements ICommand {
      */
     @Override
     public void execute(String... args) {
-        if (args.length > 3) {
+        if (args.length > 4) {
             String scriptName = args[0].toLowerCase();
 
-            String query = "INSERT INTO `osbot-" + scriptName + "`.`logs` (user, version, log) VALUES " +
+            String query = "INSERT INTO `osbot-" + scriptName + "`.`logs` (user, version, mirror, log) VALUES " +
                     "((SELECT id from `osbot-" + scriptName + "`.`users` WHERE username='" + args[1] + "')," +
                     " '" + args[2] + "'," +
-                    " '" + args[3].replaceAll("`", "") + "');";
+                    Boolean.valueOf(args[3]) + "," +
+                    " '" + args[4].replaceAll("`", "") + "');";
             QueryFactory.getInstance().runQuery(query);
 
         }
